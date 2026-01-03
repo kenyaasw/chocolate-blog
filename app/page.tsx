@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ModeToggle } from "./components/ModeToggle";
 import Navbar from "./components/Navbar";
 import { client } from "./lib/sanity";
+import { simpleBlogCard } from "./lib/interface";
 
 async function getData() {
   const query = `
@@ -9,6 +10,7 @@ async function getData() {
     title,
     smallDescription,
     "currentSlug": slug.current
+    thumbnailImage,
   }`;
 
   const data = await client.fetch(query);
@@ -18,7 +20,7 @@ async function getData() {
 }
 
 export default async function Home() {
-  const data = await getData();
+  const data: simpleBlogCard[] = await getData();
 
   console.log(data);
 
