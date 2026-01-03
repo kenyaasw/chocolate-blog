@@ -1,16 +1,17 @@
 import Image from "next/image";
 import { ModeToggle } from "./components/ModeToggle";
 import Navbar from "./components/Navbar";
-import { client } from "./lib/sanity";
+import { client, urlFor } from "./lib/sanity";
 import { simpleBlogCard } from "./lib/interface";
+import { Card } from "@/components/ui/card";
 
 async function getData() {
   const query = `
   *[_type == 'blog'] | order(_createdAt desc) {
     title,
     smallDescription,
-    "currentSlug": slug.current
-    thumbnailImage,
+    "currentSlug": slug.current,
+    thumbnailImage
   }`;
 
   const data = await client.fetch(query);
@@ -25,9 +26,12 @@ export default async function Home() {
   console.log(data);
 
   return (
-    <div >
-      {/* <Navbar /> */}
-      <h1>Hello index page</h1>
+    <div className="grid grid-cols-1 lg:grid-cols-4 mt-5">
+      {data.map((post, idx) => (
+        <Card key={idx}>
+          <Image src={urlFor(post.thumbnailImage).url()} alt={post.title} width={500} height={500} />
+        </Card>
+      ))}
 
     </div>
   );
