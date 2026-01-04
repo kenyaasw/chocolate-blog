@@ -43,8 +43,14 @@ export default async function BlogArticle({
                 priority
                 className="rounded-lg mt-8 border mx-auto"
             />
-            <div className="mt-16 mx-auto max-w-5xl text-justify">
+            <div className="mt-16 mx-auto max-w-4xl text-justify 
+            prose prose-lg 
+            dark:prose-invert 
+            prose-li:marker:text-primary 
+            prose-a:text-primary 
+            prose-a:hover:underline-offset-4 ">
                 <PortableText value={data.content} />
+                <br />
             </div>
         </div>
 
