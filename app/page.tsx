@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import { client, urlFor } from "./lib/sanity";
 import { simpleBlogCard } from "./lib/interface";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 async function getData() {
   const query = `
@@ -37,8 +39,11 @@ export default async function Home() {
             className="rounded-t-lg h-[200px] object-cover"
           />
           <CardContent>
-            <CardTitle>{post.title}</CardTitle>
-            <CardDescription>{post.smallDescription}</CardDescription>
+            <CardTitle className="text-lg line-clamp-2">{post.title} </CardTitle>
+            <CardDescription className="text-sm line-clamp-2 mt-2">{post.smallDescription}</CardDescription>
+            <Button asChild className="w-full mt-7">
+              <Link href={`/blog/${post.currentSlug}`}>Read More</Link>
+            </Button>
           </CardContent>
         </Card>
       ))}

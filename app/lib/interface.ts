@@ -4,3 +4,11 @@ export interface simpleBlogCard {
     currentSlug: string;
     thumbnailImage: any;
 }
+
+export interface blogArticleData {
+    currentSlug: string;
+    title: string;
+    thumbnailImage: any;
+    smallDescription: string;
+    content: any;
+}
