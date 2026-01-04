@@ -4,6 +4,8 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+export const revalidate = 30; // revalidate at most 30 seconds
+
 async function getData(slug: string) {
     const query = `
     *[_type == 'blog' && slug.current == $slug][0] {
