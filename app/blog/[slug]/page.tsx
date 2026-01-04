@@ -1,5 +1,6 @@
 import { blogArticle } from "@/app/lib/interface";
 import { client, urlFor } from "@/app/lib/sanity";
+import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -39,8 +40,13 @@ export default async function BlogArticle({
                 alt={data.title}
                 width={800}
                 height={800}
+                priority
                 className="rounded-lg mt-8 border mx-auto"
             />
+            <div className="mt-16 mx-auto max-w-5xl text-justify">
+                <PortableText value={data.content} />
+            </div>
         </div>
+
     );
 }
