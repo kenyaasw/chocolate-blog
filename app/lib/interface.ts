@@ -5,10 +5,9 @@ export interface simpleBlogCard {
     thumbnailImage: any;
 }
 
-export interface blogArticleData {
+export interface blogArticle {
     currentSlug: string;
     title: string;
-    thumbnailImage: any;
-    smallDescription: string;
     content: any;
+    thumbnailImage: any;
 }
