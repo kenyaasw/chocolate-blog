@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { ModeToggle } from "./components/ModeToggle";
-import Navbar from "./components/Navbar";
 import { client, urlFor } from "./lib/sanity";
 import { simpleBlogCard } from "./lib/interface";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";

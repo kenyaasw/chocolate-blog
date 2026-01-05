@@ -1,5 +1,6 @@
+import { ModeToggle } from "@/components/ModeToggle";
 import Link from "next/link";
-import { ModeToggle } from "./ModeToggle";
+
 
 export default function Navbar() {
     return (
