@@ -14,6 +14,7 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import Image from "next/image"
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -58,6 +59,14 @@ export default function Navbar() {
     return (
         <NavigationMenu viewport={isMobile} className="w-full relative flex items-center max-w-7xl mx-auto px-7 py-5">
             <NavigationMenuList className="flex-wrap">
+                <NavigationMenuItem>
+                    <Image
+                        src="/assets/images/coding-kitty-outline.png"
+                        alt="Chocolate Blog Logo"
+                        width={50}
+                        height={50}
+                    />
+                </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Home</NavigationMenuTrigger>
                     <NavigationMenuContent>
